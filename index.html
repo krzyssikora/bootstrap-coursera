@@ -29,10 +29,8 @@
                     <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-list fa-lg"></span> Menu</a></li>
                     <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
                 </ul>
-                <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal">
-                        <span class="fa fa-sign-in"></span> Login
-                    </a>
+                <span class="navbar-text" id="loginButton">
+                    <span class="fa fa-sign-in"></span> Login
                 </span>
         </div>
     </nav>
@@ -154,7 +152,7 @@
                     <img src="img/logo.png" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm-3 align-self-center">
-                    <a data-toggle="modal" data-target="#reserveModal" class="btn btn-sm btn-block btn-warning text-dark font-weight-bold">Reserve Table</a>
+                    <div id="reserveButton" class="btn btn-sm btn-block btn-warning text-dark font-weight-bold">Reserve Table</div>
                 </div>
             </div>
         </div>
@@ -315,6 +313,7 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
+            // carousel play / pause
             $('#mycarousel').carousel({interval: 2000});
             $('#carouselButton').click(function () {
                 if ($('#carouselButton').children('span').hasClass('fa-pause')) {
@@ -328,7 +327,16 @@
                     $('#carouselButton').children('span').addClass('fa-pause');
                 }
             });
-            
+
+            // showing Login modal
+            $('#loginButton').click(function() {
+                $('#loginModal').modal('show');
+            });
+
+            // showing reservation modal
+            $('#reserveButton').click(function() {
+                $('#reserveModal').modal('show');
+            });
         })
     </script>
 </body>
